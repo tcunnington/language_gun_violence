@@ -29,18 +29,44 @@ Since most of the stories in the dataset were not related to shootings I had to 
 
 ### Takeaways:
 
-insert venn diagram of terms
-discuss
 
-insert timeline plot
-discuss
+##### Top words
 
-anything else?
+By comparing the top words between two events we can find out if there are language differences between the two events.
+
+![Comparing top words](img/tfidf_compare.png?raw=true)
+
+Takeaways from this figure:
+* Words you expect to be in such a story show overlap
+* Words that make a story unique show in the list of top words
+* Interestingly "attack" and "victim" are top words only in the Orlando story. This might suggest a different way of talking about events that are connected to terrorism.
+
+##### Orlando timeline
+
+I wanted to create some sense of word usage over time in the days after an attack. 
+In order to do that I looked through the learned vocabulary for the Orlando shooting and started putting words into groups, such as putting the words 'gun', 'handgun', 'rifle', 'pistol', into a group called "gun vocab". 
+I can then do analysis on the vocab groups, because that both reduces the considered vocabulary to terms (unigrams and bi-grams) that I care about, and it reduces the number of dimensions I need to consider.
+
+Note: Gun vocab are synonyms for guns. 
+Terror vocab are different words for terrorist, synonyms of ISIS, and words suggesting radical islam. 
+Illness vocab are words commonly used to describe someone mentally unwell, such as "delusional".
+The shooting vocab is language we certainly expect be in a story about a shooting, such as "shooter"".
+ 
+![Orlando Timeline](img/orlando_timeline.png?raw=true)
+
+Takeaways from this figure:
+
+> On average terror vocab words were used about 3x as often as gun words
+
+* Guns are not the focus of any of the articles for this event
+* Mental illness is basically not discussed
+* The shooter's ties to terrorism are mentioned frequently--perhaps there's typically not overlap between mental illness and terrorism discussions (Are we unwilling to consider terrorists to be mentally ill?)
+
 
 ### Future Plans:
 
-- More data! Fill in years with poor coverage. Perhaps another sort of corpus altogether: politicians’ speeches/statements, NRA statements, twitter, etc.
-- Compare language of different news sources
+- More data! Get stories to cover more recent events. Perhaps another sort of corpus altogether: politicians’ speeches/statements, NRA statements, twitter, etc.
+- Compare language of different news sources, including sentiment.
 - More time series plots. Including other big stories and word usage over months and years
 - Lots of experimentation with visualizations, and at least one interactive plot
 - Use Mother Jones data set to add more context or aid in further group/slice/filter experimentation

@@ -48,7 +48,7 @@ def filter_n_highest(arr, n_highest):
 def preprocess(doc):
     doc = doc.lower().replace(u'•', '')
     doc = remove_punctuation(doc)
-    doc = " ".join([w for w in word_tokenize(doc) if not w in stop_words])
+    # doc = " ".join([w for w in word_tokenize(doc)])
     return doc
 
 
@@ -75,10 +75,10 @@ def simple_word_counts(prepared_doc, n=20):
 #################################################
 
 def tokenize(text):
-    return [lemmatizer.lemmatize(w) for w in word_tokenize(text)]
+    return [lemmatizer.lemmatize(w) for w in word_tokenize(text) if not w in stop_words]
 
 def tokenize_stem(text):
-    return [stemmer.stem(w) for w in word_tokenize(text)]
+    return [stemmer.stem(w) for w in word_tokenize(text) if not w in stop_words]
 
 def vec_output_to_df(vectorizer, output):
     # index is the index of the story
